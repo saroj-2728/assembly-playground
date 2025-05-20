@@ -1,0 +1,79 @@
+; Add a table of 10 16-bit no.s and store the 24-bit answer after the table 
+
+mvi b, 00h
+lxi h, 2000h
+mvi c, 0ah
+mvi d, 00h
+mvi e, 00h
+
+addNumbers:
+  mov a, m
+  add e
+  jnc skip1           
+  inr d
+  skip1:
+    mov e, a
+  
+  inx h
+  
+  mov a, m
+  add d
+  jnc skip2
+  inr b
+  skip2:
+    mov d, a
+  
+  inx h
+  dcr c
+  jnz addNumbers
+
+  mov m, e
+  inx h
+  mov m, d
+  inx h
+  mov m, b
+
+hlt
+
+
+
+; Add a table of 10 16-bit no.s and store the 24-bit BCD no. after the table 
+
+mvi b, 00h
+lxi h, 2000h
+mvi c, 0ah
+mvi d, 00h
+mvi e, 00h
+
+addNumbers:
+  mov a, m
+  add e
+  daa
+  jnc skip1           
+  inr d
+  skip1:
+    mov e, a
+  
+  inx h
+  
+  mov a, m
+  add d
+  daa
+  jnc skip2
+  inr b
+  skip2:
+    mov d, a
+  
+  inx h
+  dcr c
+  jnz addNumbers
+
+  mov m, e
+  inx h
+  mov m, d
+  inx h
+  mov m, b
+  
+  
+
+hlt

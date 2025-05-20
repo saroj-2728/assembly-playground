@@ -1,0 +1,30 @@
+; Swap nibbles of no.s of a table and transfer to another table if d5 = 1 else store ffh
+
+lxi h, 2000h
+lxi d, 2010h
+mvi c, 0ah
+
+swapAndTransfer:
+  mov a, m
+  mov b, a
+  ani 20h
+  cpi 20h
+  jnz storeFF
+    rlc
+    rlc
+    rlc
+    rlc
+    mov a, b
+    jmp goToNext
+    
+  storeFF:
+    mvi a, 0ffh
+
+  goToNext:
+    stax d
+    inx h
+    inx d
+    dcr c
+    jnz swapAndTransfer
+
+hlt

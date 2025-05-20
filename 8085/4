@@ -1,0 +1,16 @@
+lxi h, 9050h
+mvi c, 32h
+loop:
+  mov a, m
+  cpi 61h
+  jc notToBeAltered
+  cpi 7bh
+  jnc notToBeAltered
+  sui 20h
+  mov m, a
+  notToBeAltered:
+    inx h
+    dcr c
+    jnz loop
+
+  hlt

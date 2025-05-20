@@ -1,0 +1,83 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build.bat",
+            "args": [
+                "${relativeFile}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "${workspaceFolder}\\run.bat",
+            "args": [
+                "${relativeFile}"
+            ],
+            "group": {
+                "kind": "test"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build and Run",
+            "dependsOn": "Build",
+            "type": "shell",
+            "command": "${workspaceFolder}\\run.bat",
+            "args": [
+                "${relativeFile}"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Debug",
+            "type": "shell",
+            "command": "${workspaceFolder}\\debug.bat",
+            "args": [
+                "${relativeFile}"
+            ],
+            "group": {
+                "kind": "test"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build and Debug",
+            "dependsOn": "Build",
+            "type": "shell",
+            "command": "${workspaceFolder}\\debug.bat",
+            "args": [
+                "${relativeFile}"
+            ],
+            "group": {
+                "kind": "test"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+# Ignore Visual Studio Code settings except launch and tasks configuration
+.vscode/c_cpp_properties.json
+.vscode/settings.json
+
+# Ignore binary and build artifacts
+bin/
+*.obj
+*.exe
+*.lst
+*.bak
+*.tmp
+
+# Ignore temporary files
+*.~*
+*.swp
+*.swo
+*.temp
+
+# Ignore tools folder if it contains third-party executables
+tools/
+
+# Ignore log files
+*.log
+
+# Ignore compiled output or cache files
+*.o
+*.out
+*.bin
+
+# Backup files
+*.bak
+
+# Ignore Windows batch scripts if they are generated automatically (Optional)
+# If they are part of your project, don't include this
+# *.bat

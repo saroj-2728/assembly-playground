@@ -1,0 +1,31 @@
+; 2 tables, store the element difference into 3rd table, sub greater - smaller
+
+lxi h, 2000h
+lxi b, 2010h
+lxi d, 2020h
+
+subAndTransfer:
+  push d
+  mov d, m
+  ldax b
+  cmp d
+  jc firstSmall
+  sub d
+  jmp storeValue
+  
+  firstSmall:
+    mov e, a
+    mov a, d
+    sub e
+
+  storeValue:
+    pop d
+    stax d
+    inx h
+    inx b
+    inx d
+    mov a, l
+    cpi 04h
+    jnz subAndTransfer
+
+hlt

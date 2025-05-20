@@ -1,0 +1,14 @@
+Line No.  Memory Address  Machine Codes  Source
+-------------------------------------------------------------
+1         0x0             01 93 27       lxi b, 2793h
+2         0x3             11 82 31       lxi d, 3182h
+3                                        
+4         0x6             79             mov a, c
+5         0x7             83             add e
+6         0x8             67             mov h, a
+7         0x9             78             mov a, b
+8         0xA             8A             adc d
+9         0xB             32 51 20       sta 2051h
+10        0xE             7C             mov a, h
+11        0xF             32 50 20       sta 2050h
+12        0x12            76             hlt

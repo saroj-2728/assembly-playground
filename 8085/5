@@ -1,0 +1,29 @@
+; Transfer 10 8-bit numbers from 9080 to 9090 if the d5 is 1 and d3 is 0, otherwise transfer it by 
+; complementing d2 and d6
+
+lxi h, 9080h
+lxi d, 9090h
+mvi c, 0ah
+
+transferNumbers:
+  mov a, m
+  ani 28h
+  cpi 20h
+  jnz transferAnotherWay
+
+  mov a, m
+  stax d
+  jmp goToNext
+
+  transferAnotherWay:
+    mov a, m
+    xri 44h
+    stax d
+    
+  goToNext:
+    inx h
+    inx d
+    dcr c
+    jnz transferNumbers
+    
+hlt

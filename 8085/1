@@ -1,0 +1,16 @@
+Line No.  Memory Address  Machine Codes  Source
+-------------------------------------------------------------
+1         0x0             21 00 76       lxi h, 7600h
+2         0x3             0E 0A          mvi c, 0ah
+3                                        loop:
+4         0x5             7E               mov a, m
+5         0x6             FE 80            cpi 80h
+6         0x8             DA 0E 00         jc skip
+7         0xB             EE 20            xri 20h
+8         0xD             77               mov m, a
+9                                          skip:
+10        0xE             23                 inx h
+11        0xF             0D                 dcr c
+12        0x10            C2 05 00           jnz loop
+13                                           
+14        0x13            76               hlt

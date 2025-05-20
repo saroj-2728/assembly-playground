@@ -1,0 +1,26 @@
+; Count -ve elements in a table of 16 elements, store count after that if count > 8 else store 0
+
+lxi h, 2000h
+mvi c, 10h
+mvi b, 00h
+
+countLoop:
+  mov a, m
+  rlc
+  jnc skipCount
+  inr b
+  
+  skipCount:
+    inx h
+    dcr c
+    jnz countLoop
+
+  mov a, b
+  cpi 09h
+  jnc storeCount
+  mvi a, 00h
+
+  storeCount:
+    mov m, a
+
+hlt  
